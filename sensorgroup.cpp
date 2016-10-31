@@ -16,3 +16,13 @@ void SensorGroup::test() {
 void SensorGroup::add(shared_ptr<ISensorComponent> pComponent) {
     m_vChildren.push_back(static_pointer_cast<ISensorComponent>(pComponent));
 }
+
+void SensorGroup::overview(int level) {
+    sort(m_vChildren.begin(), m_vChildren.end(), m_funcSort);
+    for (int i = 0; i < level; ++i) cout << "\t";
+    cout << "Group '" << m_sName << "' has following members:" << endl;
+    level++;
+    for (int j = 0;j < m_vChildren.size();++j) {
+        m_vChildren[j]->overview(level);
+    }
+}

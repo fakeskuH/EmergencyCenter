@@ -7,7 +7,7 @@ class SmokeSensor : public Sensor
 {
 public:
     SmokeSensor(string name, string vendor, int id, bool isEnabled) :
-        Sensor(name, vendor, "Smoke", id, isEnabled) {
+        Sensor(name, vendor, 1, id, isEnabled) {
         m_vActions.push_back(shared_ptr<Action>(new NotifyPolice()));
         m_vActions.push_back(shared_ptr<Action>(new CustomAction("EnableSprinklers",[]() {
             Logger::log("Enabling sprinklers via a lambda!",0);

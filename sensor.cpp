@@ -24,3 +24,8 @@ void Sensor::test() {
         Logger::log(m_sName + " is disabled.", 1);
     }
 }
+
+void Sensor::overview(int level) {
+    for (int i = 0; i < level; ++i) cout << "\t";
+    cout << "Sensor '" << m_sName << "' with ID '" << m_iID << "', type ID '" << m_iType << "' and vendor '" << m_sVendor << "'." << endl;
+}
